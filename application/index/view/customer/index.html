@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<title>>客服中心|大神游戏</title>
+	<meta name="keywords" content=".."/>
+	<meta name="description" content=".."/>
+	<meta property="qc:admins" content="401320277271556140006375" />
+	<link rel="stylesheet" href="__STATIC__/css/pc/customer.css">
+</head>
+<body>
+<!-- nav bar -->
+{include file="public/top_line" /}
+<!-- nav bar - end -->
+
+<!-- header-nav -->
+{include file="public/header" /}
+<!-- header-nav - end -->
+<div class="tran-bg"></div>
+<div class="kf-home-container">
+	<div class="kf-home-content">
+		<ul>
+			<li>
+				<a class="online-normal" href="http://www16.53kf.com/webCompany.php?style=1&arg=10161684" target="_blank"></a><!-- 在线客服 -->
+				<a class="hover online-hover" href="http://www16.53kf.com/webCompany.php?style=1&arg=10161684" target="_blank">
+					<i>联系在线客服</i>
+					<p>9:30 - 00:00</p>
+				</a>
+			</li>
+			<li>
+				<a class="query-normal" href="{:url('pc/cs_query')}"></a><!-- 账号查询 -->
+				<a class="hover query-hover" href="{:url('pc/cs_query')}">
+					<i>查询</i>
+				</a>
+			</li>
+			<li class="li-3 m-right-0">
+				<a class="tel-normal"></a><!-- 客服热线 -->
+				<a class="hover tel-hover">
+					028-67875837<br>4001-898-116<br>
+					<i>10:30 - 19:00 × 7</i>
+				</a>
+			</li>
+			<li >
+				<a  class="complain-normal" href="{:url('pc/cs_complain')}"></a><!-- 投诉 -->
+				<a class="hover complain-hover" href="{:url('pc/cs_complain')}">
+					<i>投诉</i>
+				</a>
+			</li>
+			<li class="li-5 m-right-0">
+				<a class="repair-normal" href="{:url('pc/cs_repair')}"></a><!-- 账号修复 -->
+				<a class="hover repair-hover" href="{:url('pc/cs_repair')}">
+					<i>修复</i>
+				</a>
+			</li>
+
+			<li class="w-225">
+				<a class="record-normal" href="{:url('pc/cs_cs_service_records')}"></a><!--服务记录 -->
+				<a class="hover record-hover" href="{:url('pc/cs_cs_service_records')}">
+					<i>查看记录</i>
+				</a>
+			</li>
+			<li class="w-225">
+				<a class="bug-normal" href="{:url('pc/cs_bug')}"></a><!-- 游戏建议及bug反馈 -->
+				<a class="hover bug-hover" href="{:url('pc/cs_bug')}">
+					<i>提交</i>
+				</a>
+			</li>
+			<li>
+				<a class="car-normal" href="{:url('pc/cs_car')}"></a><!-- 接驾服务排号区 -->
+				<a class="hover car-hover" href="{:url('pc/cs_car')}">
+					<i>查看</i>
+				</a>
+			</li>
+			<li class="li-9 m-right-0">
+				<a class="wg-normal" href="{:url('pc/cs_wg')}"></a><!-- 外挂举报 -->
+				<a class="hover wg-hover" href="{:url('pc/cs_wg')}">
+					<i>举报</i>
+				</a>
+			</li>
+
+		</ul>
+	</div>
+	<script>
+		$('.kf-home-content ul li').hover(function () {
+			$(this).find('.hover').fadeIn(200)
+		},function () {
+			$(this).find('.hover').fadeOut(200);
+		})
+	</script>
+</div>
+<!-- footer -->
+{include file="public/footer" /}
+<!-- footer - end -->
+<style>
+	.footer5{margin-top:0;}
+</style>
+</body>
+</html>

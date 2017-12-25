@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户中心</title>
+    <link rel="stylesheet" href="__STATIC__/css/pc/bootstrap.min.css">
+    <link href="__STATIC__/css/pc/datetimepicker.css" rel="stylesheet">
+</head>
+<body>
+<!--顶部-->
+{include file="public/top_line"}
+
+{include file="public/header"}
+
+<div class="ac_contentox">
+
+    {include file="public/ac_userinform"}
+    <div class="ac_textbox">
+
+        {include file="public/ac_leftnav"}
+
+        <!--右侧内容-->
+        <div class="ac_rightnav">
+            <!--账号安全设置-->
+            <div class="ac_accountsafe">
+                <p class="tit">账号安全</p>
+
+                <p class="p2">账号安全/<span>完善密保</span></p>
+
+                <!--正常显示内容-->
+                <ul class="set-password">
+                    <li class="user-password li-box">
+                        <div class="words_box <{if !empty($nc.safe_aq)}>active<{/if}>">
+                            <p class="tit">密保问题 <i>未设置</i></p>
+                            <a class="edit-btn" href="javascript:;">未设置
+                                <div class="edit-content">
+
+                                </div>
+                            </a>
+                            <p class="tit-pro">用于忘记密码或帐号被盗时快速重置密码</p>
+                        </div>
+                    </li>
+                    <li class="user-email li-box">
+                        <div class="words_box active">
+                            <p class="tit">密保邮箱 <i>未设置</i></p>
+                            <a class="edit-btn" href="javascript:;">设置邮箱</a>
+                            <p class="tit-pro">用于忘记密码或帐号被盗时快速重置密码</p>
+                        </div>
+                    </li>
+                    <li class="user-phone li-box">
+                        <div class="words_box  <{if !empty($nc.mobile)}>active<{/if}>">
+                            <p class="tit">手机号码 <i>未设置</i></p>
+                            <a class="edit-btn" href="javascript:;">未设置</a>
+                            <p class="tit-pro">用于密码修改时短信提示和密码遗失时重置密码</p>
+                        </div>
+                    </li>
+                    <li class="user-idcar li-box">
+                        <div class="words_box active ">
+                            <p class="tit">证件信息 <i>已设置</i></p>
+                            <a class="edit-btn" href="javascript:;">已设置</a>
+                            <p class="tit-pro"><span class="name"></span> <i class="id-car"></i>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+                <!--密保设置显示内容盒子-->
+                <div class="edit-contentbox">
+                    <!--设置密保问题-->
+                    <div class="edit-contentlist">
+                        <div class="edit-tit">
+                            <p class="p1">设置密保问题</p>
+                            <p class="p2">用于忘记密码或帐号被盗时快速重置密码</p>
+                        </div>
+                        <form action="" method="post">
+                            <input type="hidden" name="do" value="safe_aq">
+                            <div class="edit-question">密保问题
+                                <select name="type" id="question">
+                                    <option>请选择一个问题</option>
+                                    <option value="1">我就读的第一所学校的名称？</option>
+                                    <option value="2">我喜欢的休闲运动是什么？</option>
+                                    <option value="3">我的父亲姓名</option>
+                                    <option value="4">我的母亲姓名</option>
+                                </select>
+                            </div>
+                            <div class="edit-answer">密保答案 <input type="text" name="new" placeholder="请输入答案"></div>
+                            <p class="submit-btn">
+                                <button>保存</button>
+                            </p>
+                        </form>
+                    </div>
+                    <!--设置密保邮箱-->
+                    <div class="edit-contentlist">
+                        <div class="edit-tit email">
+                            <p class="p1">设置密保邮箱</p>
+                            <p class="p2">用于忘记密码或帐号被盗时快速重置密码</p>
+                        </div>
+                        <form action="" method="post">
+                            <input type="hidden" name="pro" value="email">
+                            <div class="edit-answer">密保邮箱 <input type="text" placeholder="请输入密保邮箱" name="email"
+                                                                 value=""></div>
+                            <p class="submit-btn">
+                                <button>发送验证邮箱</button>
+                            </p>
+                        </form>
+
+                    </div>
+                    <!--设置密保手机-->
+                    <div class="edit-contentlist">
+                        <div class="edit-tit phone">
+                            <p class="p1">设置密保手机</p>
+                            <p class="p2">用于密码修改时短信提示和密码遗失时重置密码</p>
+                        </div>
+                        <form action="/?ct=account&ac=dx_mobilevif" method="post">
+                            <div class="edit-question">手机号
+                                <input type="text" id="inputdxmobile" name="mobile"   placeholder="请输入手机号">
+                                <button class="get-nub dxvifeoldtime" type="button"  onmouseenter="phone(this)" onclick="dxvif(this)">获取验证码</button>
+                            </div>
+                            <div class="edit-answer">验证码 <input type="text" name="vifdx" placeholder="请输入验证码"></div>
+                            <p class="submit-btn">
+                                <button>保存</button>
+                            </p>
+                        </form>
+                    </div>
+                    <!--实名验证-->
+                    <div class="edit-contentlist">
+                        <div class="edit-tit idcar">
+                            <p class="p1">实名认证</p>
+                            <p class="p2">请设置您的真实身份证</p>
+                        </div>
+                        <form action="">
+                            <div class="edit-question">真实姓名
+                                <input type="text" placeholder="请输入真实姓名">
+                            </div>
+                            <div class="edit-answer">身份证号 <input type="text" placeholder="请输入身份证号"></div>
+                        </form>
+                        <p class="submit-btn">
+                            <button>保存</button>
+                        </p>
+
+                    </div>
+
+
+                    <!--更改密保问题-->
+                    <div class="edit-contentlist  ">
+                        <div class="edit-tit">
+                            <p class="p1">设置新密保问题</p>
+                            <p class="p2">用于密码修改时短信提示和密码遗失时重置密码</p>
+                        </div>
+                        <form action="" method="post">
+                            <input type="hidden" name="do" value="">
+                            <div class=" old-question new-questionbox ">旧密保问题
+                                <input type="text" disabled id="question2">
+                            </div>
+                            <div class="old-answer new-questionbox">旧密保答案
+                                <input type="text" onfocus="this.value=''" onblur="prook(this.value)" placeholder="请输入答案"><i style="color: red;display: none" id="safe_err">答案错误！</i></div>
+                            <div class="new-question new-questionbox">新密保问题
+                                <select name="type" id="question3">
+                                    <option>请选择一个问题</option>
+                                    <option value="1">我就读的第一所学校的名称？</option>
+                                    <option value="2">我喜欢的休闲运动是什么？</option>
+                                    <option value="3">我的父亲姓名</option>
+                                    <option value="4">我的母亲姓名</option>
+                                </select>
+                            </div>
+                            <div class="new-answer new-questionbox">新密保答案
+                                <input type="text" name="new" placeholder="请输入答案"></div>
+                            <p class="submit-btn">
+                                <button id="safe_sub" disabled>确定</button>
+                            </p>
+                        </form>
+                        <script>
+                            //                            验证密保问题
+                            var safe_aqs = '';
+                            var prob = $("#question option[value='"+safe_aqs+"']").text();
+                            $('#question2').val(prob)
+                            function prook(val) {
+                                $.post('/?ct=account&ac=prookAjax',{
+                                    type : safe_aqs,
+                                    safe_content : val
+                                },function (msg) {
+                                    (msg.info == 202) ? ($('#safe_err').css('display','inline-block'),$('#safe_sub').attr('disabled','disabled')) : ($('#safe_err').css('display','none'),$('#safe_sub').removeAttr('disabled'));
+                                });
+                            }
+                            //                           手机获取
+                            function phone(obj) {
+                                $(obj).attr('mobile',$('#inputdxmobile').val())
+                            }
+                            //                            短信验证
+                            function dxvif(obj) {
+                                var obthis = $(obj);
+                                var phone = obthis.attr('mobile');
+                                if(!(/^1[34578]\d{9}$/.test(phone))){
+                                    alert("手机号码有误，请重填");
+                                    return false;
+                                }
+                                $.post('/?ct=account&ac=mobile',{
+                                    phone : phone
+                                },function (msg) {
+                                    if(msg == 200){
+                                        alert('发送成功,验证码5分钟内有效！');
+                                        obthis.attr('disabled','disabled');
+                                        vifnewbuttons();
+                                    }else{
+                                        alert('发送失败！');
+                                    }
+                                })
+                            }
+
+                            //重新获取时间
+                            var countdown=60;
+                            function vifnewbuttons() {
+                                var obthis = $('.dxvifeoldtime');
+                                if (countdown == 0) {
+                                    obthis.removeAttr("disabled");
+                                    obthis.html("获取验证码");
+                                    countdown = 60;
+                                    return;
+                                } else {
+                                    obthis.html("重新发送(" + countdown + ")");
+                                    countdown--;
+                                }
+                                setTimeout(function() {
+                                            vifnewbuttons() }
+                                        ,1000)
+                            }
+                        </script>
+                    </div>
+                    <!--更改密保邮箱-->
+                    <div class="edit-contentlist  change-email">
+                        <div class="edit-tit email">
+                            <p class="p1">设置新密保邮箱</p>
+                            <p class="p2">用于密码修改时短信提示和密码遗失时重置密码</p>
+                        </div>
+                        <form action="" method="post">
+                            <input type="hidden" name="pro" value="email">
+                            <div class="edit-answer">密保邮箱 <input type="text" placeholder="请输入密保邮箱" name="email" value=""></div>
+                            <p class="submit-btn">
+                                <button>发送验证邮箱</button>
+                            </p>
+                        </form>
+                    </div>
+                    <!--更换手机-->
+                    <div class="edit-contentlist change-phone  ">
+                        <div class="edit-tit phone">
+                            <p class="p1">跟换密保手机</p>
+                            <p class="p2">用于跟换手机号时更改绑定密保手机</p>
+                        </div>
+                        <div class="old-phone ">验证方式
+                            <input type="text" onblur="oldmoblie(this,this.value,'mobile')" placeholder="旧密保手机号">
+                            <i style="color: red; display: none" num="0" class="mobile_first">密保手机错误</i>
+                        </div>
+                        <div class="get-code"> &nbsp;&nbsp; 验证码 <input type="text" onblur="oldmoblie(this,this.value,'vif')" placeholder="请输入验证码">
+                            <img src="?ct=cs&ac=code" alt="点击换一张" onClick="this.src='?ct=cs&ac=code&a='+Math.random();">
+                            <i style="color: red; display: none;" num="0"  class="mobile_second">验证码错误</i>
+                        </div>
+                        <div class="old_phonebox"><span class="old_phone">你的手机号码:</span>
+                            <button class="get-nub dxvifeoldtime" mobile=""  onclick="dxvif(this)">获取验证码</button>
+                        </div>
+                        <div class="dx-nub">短信验证码：<input type="text" num="0"   onblur="oldmoblie(this,this.value,'mobilevif')">
+                            <i style="color: red; display: none;" class="mobile_third">验证码错误</i>
+                        </div>
+
+                        <p class="submit-btn next-btn">
+                            <button disabled="disabled" id="updatemobile" onmouseenter="mobilenext()">下一步</button>
+                        </p>
+                    </div>
+                    <!--绑定新手机-->
+                    <div class="edit-contentlist change-phone ">
+                        <div class="edit-tit phone">
+                            <p class="p1">请输入密保新手机</p>
+                            <p class="p2">用于密码修改时短信提示和密码遗失时重置密码</p>
+                        </div>
+                        <form action="/?ct=account&ac=dx_mobilevif" method="post">
+                            <div class=" old-phone ">手机号码
+                                <input type="text" name="mobile"  id="inputdxmobile2" placeholder="请输入新密保手机号">
+                            </div>
+                            <div class="new-phone">
+                                <button type="button" class="get-nub dxvifeoldtime"  onmouseenter="phones(this)" onclick="dxvif(this)">获取验证码</button>
+                                <span>注：一天只能获取三次验证码</span></div>
+                            <div class="dx-nub">短信验证码：<input type="text" name="vifdx" ></div>
+                            <p class="submit-btn">
+                                <button>确定</button>
+                            </p>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <script>
+
+                //                           手机获取
+                function phones(obj) {
+                    $(obj).attr('mobile',$('#inputdxmobile2').val())
+                }
+                function oldmoblie(obj,val,type) {
+                    var obthis = $(obj);
+                    $.post('/?ct=account&ac=oldmobilevif',{
+                        text : val,
+                        type : type
+                    },function (msg){
+                        if(msg.info == 200) {
+                            obthis.nextAll('i').css('display','none').attr('num','1');
+                            $('#updatemobile').removeAttr('disabled')
+                        } else if (msg.info == 201){
+                            obthis.nextAll('i').css('display','block').attr('num','0');
+                        }
+                    });
+                }
+                function mobilenext() {
+                    var first = $('.mobile_first').attr('num');
+                    var second = $('.mobile_second').attr('num');
+                    var third = $('.mobile_third').attr('num');
+                    if(first == 0 || second == 0 || third  == 0) {
+                        $('#updatemobile').attr('disabled','disabled')
+                    }
+                }
+            </script>
+        </div>
+
+    </div>
+</div>
+
+{include file="public/footer"}
+
+<script src="__STATIC__/js/pc/bootstrap-datetimepicker.min.js"></script>
+<script src="__STATIC__/js/pc/ac_account2.js"></script>
+</body>
+</html>

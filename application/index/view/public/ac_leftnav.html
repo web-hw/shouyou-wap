@@ -1,0 +1,16 @@
+<div class="ac-leftnav">
+    <ul>
+        <li class="ac-userchocklist list-personal" ><a href="{:url('pc/ucenter')}">个人资料</a></li>
+        <li class="ac-userchocklist list-news" ><a href="{:url('Pc/changgepsw')}">修改密码</a></li>
+        <li class="ac-userchocklist list-safe" ><a href="{:url('Pc/usersafe')}">账号安全</a></li>
+        <li class="ac-userchocklist list-games" ><a href="{:url('Pc/giftcenter')}">礼包中心</a></li>
+    </ul>
+</div>
+<script>
+    $(function () {
+        var ac = '';
+        $('.ac-leftnav li[ac="'+ac+'"]').addClass('active');
+        $('.ac-leftnav li[ac!="'+ac+'"]').removeClass('active');
+    })
+
+</script>

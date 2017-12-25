@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏大厅-大神游戏</title>
+
+    <link rel="stylesheet" href="__STATIC__/icon/pc-icon/font-icon/iconfont.css">
+    <link rel="stylesheet" href="__STATIC__/css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="__STATIC__/css/pc/gifts-detail.css">
+</head>
+<body>
+{include file="public/top_line" /}
+
+<!-- top_line start -->
+
+<!--[if lt IE 10]>
+<style>
+    .serch-box{margin-top: 4px;}
+</style>
+<![endif]-->
+{include file="public/header" /}
+<!-- end top_line -->
+<!-- header start -->
+
+<!-- end header -->
+<!--内容部分-->
+<div class="content">
+    <div class="mid">
+        <!--顶部第一板块-->
+        <div class="gifts-topbox">
+            <div class="top-leftbox">
+                <div class="gift-pro">
+                    <div class="img-box"><img src="__STATIC__/images/pc/gifts/gifts-banner1.jpg" alt=""></div>
+                    <div class="gift-words">
+                        <p class="tit">王者传奇</p>
+                        <p class="style"><span>礼包类型：</span> <i>【王者传奇】勇士礼包</i></p>
+                        <p class="xitong"><span>适用系统：</span><i class="iconfont icon-anzhuo "></i><i class="iconfont icon-pingguo" ></i></p>
+                        <p class="where"><span>适用区服：</span><i>全服</i></p>
+                        <p class="time"><span>领取时间：</span><i>2017-06-16</i> - <i>2019-12-31</i></p>
+                        <p class="spare"><span>剩余情况:</span><span class="spare-bar"><i></i></span><span class="gift-nub"><i class="spare-nub">400</i>/<i class="total-nub">500</i></span></p>
+                        <p class="get-btn"><a href="#">立即领取</a></p>
+                    </div>
+                    <script>
+                        $(function(){
+                            var spareNub=$(".content .mid .gifts-topbox .top-leftbox .gift-pro .gift-words .spare .gift-nub .spare-nub").text();
+                            var totalNub=$(".content .mid .gifts-topbox .top-leftbox .gift-pro .gift-words .spare .gift-nub .total-nub").text();
+                            var sparebarWidth=Math.floor(250*spareNub/totalNub);
+                            console.log(sparebarWidth);
+                            $(".content .mid .gifts-topbox .top-leftbox .gift-pro .gift-words .spare .spare-bar i").css("width",sparebarWidth+"px");
+
+
+                        });
+                    </script>
+                </div>
+                <div class="gift-include">
+                   <i>【礼包内容】</i> <span>绑定元宝*100，装备强化石*25，2倍经验书*1，被动技能书礼盒*2
+                绑定元宝*100，装备强化石*25，2倍经验书*1，被动技能书礼盒*2
+                绑定元宝*100，装备强化石*25，2倍经验书*1，被动技能书礼盒*2</span>
+                </div>
+                <!--同款游戏的其他礼包-->
+                <div class="remind-bag">
+                    <ul class="samegame-difbag">
+                        <li class="bag-list">
+                            <div class="img-box"><img src="__STATIC__/images/pc/gifts/game-giftimg.jpg" alt=""></div>
+                            <div class="bag-pro">
+                                <p class="p1">国庆礼包</p>
+                                <p class="p2">天堂荣耀</p>
+                                <p class="p3"><i>2000</i>/<i>2000</i></p>
+                                <p class="p4"><a href=""><i class="iconfont icon-liwu1"></i>领取</a></p>
+                            </div>
+                        </li>
+                        <li class="bag-list">
+                            <div class="img-box"><img src="__STATIC__/images/pc/gifts/game-giftimg.jpg" alt=""></div>
+                            <div class="bag-pro">
+                                <p class="p1">国庆礼包</p>
+                                <p class="p2">天堂荣耀</p>
+                                <p class="p3"><i>2000</i>/<i>2000</i></p>
+                                <p class="p4"><a href=""><i class="iconfont icon-liwu1"></i>领取</a></p>
+                            </div>
+                        </li>
+                        <li class="bag-list">
+                            <div class="img-box"><img src="__STATIC__/images/pc/gifts/game-giftimg.jpg" alt=""></div>
+                            <div class="bag-pro">
+                                <p class="p1">国庆礼包</p>
+                                <p class="p2">天堂荣耀</p>
+                                <p class="p3"><i>2000</i>/<i>2000</i></p>
+                                <p class="p4"><a href=""><i class="iconfont icon-liwu1"></i>领取</a></p>
+                            </div>
+                        </li>
+                        <li class="bag-list">
+                            <div class="img-box"><img src="__STATIC__/images/pc/gifts/game-giftimg.jpg" alt=""></div>
+                            <div class="bag-pro">
+                                <p class="p1">国庆礼包</p>
+                                <p class="p2">天堂荣耀</p>
+                                <p class="p3"><i>2000</i>/<i>2000</i></p>
+                                <p class="p4"><a href=""><i class="iconfont icon-liwu1"></i>领取</a></p>
+                            </div>
+                        </li>
+                        <li class="bag-list">
+                            <div class="img-box"><img src="__STATIC__/images/pc/gifts/game-giftimg.jpg" alt=""></div>
+                            <div class="bag-pro">
+                                <p class="p1">国庆礼包</p>
+                                <p class="p2">天堂荣耀</p>
+                                <p class="p3"><i>2000</i>/<i>2000</i></p>
+                                <p class="p4"><a href=""><i class="iconfont icon-liwu1"></i>领取</a></p>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!--大家都在抢   读7款抢手礼包消息-->
+            {include file="public/allgifts-pick" /}
+
+        </div>
+        <div class="hot-game">
+            <!--热门礼包  读8款热门礼包-->
+            {include file="public/hot-giftbag" /}
+        </div>
+    </div>
+</div>
+
+
+<!-- footer start -->
+
+{include file="public/footer" /}
+<!-- end footer -->
+
+
+<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<title>>客服中心|服务记录|</title>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta property="qc:admins" content="401320277271556140006375" />
+	<link rel="stylesheet" href="__STATIC__/css/pc/customer.css">
+</head>
+<body>
+<!-- nav bar -->
+{include file="public/top_line" /}
+<!-- nav bar - end -->
+
+<!-- header-nav -->
+{include file="public/header"}
+<!-- header-nav - end -->
+<div class="tran-bg"></div>
+<div class="kf-container">
+	<div class="kf-content">
+		<div class="title">大神客服丨自助服务</div>
+		<div class="content clearfix boxShadow">
+			<div class="left-nav f-left">
+				{include file="public/left_nav"}
+			</div>
+			<!------ +++ 初始状态 +++ ------>
+			<div class="o-step record-o-step-1" >
+				<div class="title">
+					服务记录查询<br>
+				</div>
+				<ul class="tab-btn clearfix"  id="record-list">
+					<li><a class="on" type="0" onclick="problemResult(this,this.type,'')" href="javascript:0">处理中的问题</a></li>
+					<li>|</li>
+					<li><a href="javascript:0"  type="1" onclick="problemResult(this,this.type,'')">已处理的问题</a></li>
+				</ul>
+				<!--没有记录时-->
+
+					<p>您暂时没有正在处理的问题记录。</p>
+
+					<!--有问题记录时-->
+					<table class="record-list" border="1" cellspacing="0" cellpadding="record-list">
+						<tr>
+							<td>单号</td>
+							<td>问题类型</td>
+							<td>受理时间</td>
+							<td>回复时间</td>
+							<td>状态</td>
+							<td>操作</td>
+						</tr>
+
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><a href="javascript:0" onclick="lookcont('','')">查看</a></td>
+							</tr>
+
+					</table>
+
+			</div>
+			<!------ +++ 提单内容 +++ ------>
+			<div class="o-step record-o-step-2" hidden>
+				<div class="title">
+					服务记录查询<br>
+				</div>
+				<p class="clearfix">
+					单号<span id="myorder-title"></span>的服务记录查询
+					<a href="javascript:0" id="prev">&lt; 返回上一级</a>
+				</p>
+				<div class="rp-title">
+					<span>提单历史及回复</span>
+				</div>
+				<div class="s-content">
+					<!------ +++ 回复 +++ ------->
+
+					<!------ +++ 记录 +++ ------>
+				</div>
+				<div style="width: 56%;height: 66%;text-align: center;position: absolute;left: 22%;top: 18%;display: block;display: none; "  id="add_img">
+					<img src="" alt="" style="width: 100%;height: 100%;">
+				</div>
+				<script>
+                    $(".s-content").on("click","#prb_img",function(e){
+                        var url = $(this).attr('src');
+                        $('#add_img').show();
+                        $('#add_img img').attr('src',url);
+
+                        $(document).one("click", function(){
+                            $('#add_img').hide();
+                        });
+
+                        e.stopPropagation();
+                    });
+					/* 点击自身是否隐藏
+					 $("#add_img").on("click", function(e){
+					 e.stopPropagation();
+					 });*/
+				</script>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- footer -->
+<script src="__STATIC__/js/pc/kf_Myrecords.js"></script>
+{include file="public/footer"}
+<!-- footer - end -->
+<style>
+	.footer5{margin-top:0;}
+</style>
+</body>
+</html>

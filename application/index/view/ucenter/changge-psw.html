@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户中心</title>
+</head>
+<body>
+<!--顶部-->
+{include file="public/top_line"}
+
+{include file="public/header"}
+
+<div class="ac_contentox">
+
+    {include file="public/ac_userinform"}
+    <div class="ac_textbox">
+
+        {include file="public/ac_leftnav"}
+
+        <!--右侧内容-->
+        <div class="ac_rightnav">
+            <!--修改密码-->
+            <div class="Anti-addiction ">
+                <p class="tit">修改密码</p>
+                <p class="p2">修改密码</p>
+
+                <!--修改密码填写内容-->
+                <div class="game-pswChange">
+                    <form action="">
+                        <div class="us-name"><span>用户名:</span><input type="text" disabled></div>
+                        <div class="old-psw"><span>原密码:</span><input type="password"></div>
+                        <div class="new-psw"><span>新密码:</span><input type="password"></div>
+                        <div class="new-psw"><span>确认新密码:</span><input type="password"></div>
+                        <div class="put-btn"><button type="submit">修改</button></div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{include file="public/footer"}
+<script src="__STATIC__/js/pc/bootstrap-datetimepicker.min.js"></script>
+<script src="__STATIC__/js/pc/ac_account2.js"></script>
+</body>
+</html>

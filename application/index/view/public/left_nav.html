@@ -1,0 +1,18 @@
+<ul class="clearfix" id="acs">
+	<li><a data-title="complain"  href="{:url('pc/cs_complain')}">投诉</a></li>
+	<li><a data-title="cs_service_records" href="{:url('pc/cs_service_records')}">服务记录</a></li>
+	<li><a data-title="cs_query" href="{:url('pc/cs_query')}">账号查询</a></li>
+	<li><a data-title="findpsw" href="{:url('pc/cs_findpsw')}">密码找回</a></li>
+	<li><a data-title="wg" href="{:url('pc/cs_wg')}">外挂举报</a></li>
+	<li><a data-title="repair" href="{:url('pc/cs_repair')}">账号修复</a></li>
+	<li><a data-title="repair_result" href="{:url('pc/cs_repair_result')}">账号修复结果查询</a></li>
+	<li><a data-title="bug" href="{:url('pc/cs_bug')}">建议与bug反馈</a></li>
+
+	<li><a data-title="car" href="{:url('pc/cs_car')}">接驾服务排号区</a></li>
+</ul>
+<script>
+    var ac = "";
+    $("#acs li a").each(function(){
+        ($(this).attr('data-title') == ac) ? $(this).addClass('on') : false;
+    })
+</script>

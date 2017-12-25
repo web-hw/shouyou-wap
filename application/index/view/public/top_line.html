@@ -1,0 +1,154 @@
+<!-- top_line start -->
+<link rel="stylesheet" href="__STATIC__/css/pc/top_line.css">
+<link rel="stylesheet" href="__STATIC__/css/pc/base.css">
+<link rel="stylesheet" href=" __STATIC__/icon/pc-icon/font-icon/iconfont.css">
+<script src="__STATIC__/lib/jquery-2.0.0.min.js"></script>
+<!--[if lt IE 10]>
+<style>
+    .serch-box{margin-top: 4px;}
+</style>
+<![endif]-->
+<div class="top_line_container">
+    <div class="top_line_content clearfix">
+        <div class="top_line_left f-left">
+            <ul class="left_list clearfix">
+                <li><a class="home-a" href="/">返回首页</a></li>
+                <li><a class="favorite-a" href="">收藏本页</a></li>
+                <li><a class="add-desk-a" href="/?ct=download">把游戏大神放到桌面上</a></li>
+                <li><a href="">客服电话：028-67875837</a></li>
+            </ul>
+        </div>
+        <div class="top_line_right f-right">
+            <div class="search-box">
+                <ul class="clearfix">
+                    <li>
+                        <div class="serch-box">
+                            <div class="search clearfix">
+                                <form method="get"  action="__ROOT__/home/search">
+                                    <div class="select">
+                                        <a id="s_type" data-search-type="game">游戏</a>
+                                        <div class="part" id="type_box">
+                                            <a id="type_game" data-search-type="game">游戏</a>
+                                            <a id="type_info" data-search-type="info">资讯</a>
+                                        </div>
+                                    </div>
+                                    <input class="enter"  maxlength="22" id="search-input" name="q" type="text" value="请输入搜索内容" onfocus="this.value='';" onblur="if(this.value=='') {this.value='请输入搜索内容';}">
+                                    <input class="sb-btn" type="submit" value="搜索">
+                                    <input name="ct" type="hidden" value="search">
+                                    <input id="search-hidden-type" name="type" type="hidden" value="game">
+                                </form>
+                            </div>
+                            <script>
+                                var curr_type = '';
+                                var curr_click = $('#type_box a');
+                                var curr_choosed = $('#s_type');
+                                curr_choosed.mouseenter(function () {
+                                    $('#type_box').attr('display','block');
+                                });
+                                curr_click.click(function () {
+                                    curr_type = $(this).text();
+                                    curr_choosed.text(curr_type).attr('data-search-type',$(this).attr('data-search-type'));
+                                    $("#search-hidden-type").val($(this).attr('data-search-type'));
+                                    $('#type_box').attr('display','none');
+                                })
+                            </script>
+                        </div>
+                    </li>
+                    <!----------登录前---------->
+                    <li class="login-reg"><a class="userLogin" id="top_line_loginbtn">登录</a></li>
+                    <li class="login-reg"><a class="userReg" id="top_line_regbtn">注册</a></li>
+                    <!----------登录前---------->
+
+                    <!----------登录后---------->
+                    <!--<li class="login-reg"><a href="#"></a></li>
+                    <li class="login-reg"><a href="">[退出]</a></li>-->
+                    <!----------登录后---------->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end top_line -->
+
+<!--登录注册弹出框-->
+<div class="out-box ">
+    <div class="loginAndRegister">
+        <div class="login active">账号登录</div>
+        <div class="register">快速注册</div>
+    </div>
+    <div class="content">
+        <!--登录框内容-->
+        <div class="login-content active" >
+            <form action="">
+                <div class="account"><input type="text" placeholder="账号" name=""> <span class="iconfont icon-people"></span></div>
+                <div class="password"><input type="password" placeholder="密码" name=""><span class="iconfont icon-unlock"></span></div>
+                <p class="forgot-psd"><a href="#">忘记密码？</a></p>
+                <button type="submit">登录</button>
+                <p class="other-login">
+                    <a class="QQ iconfont icon-qq2" href="#"></a>
+                    <a class="weiXin iconfont icon-0023" href="#"></a>
+                    <a class="weiBo iconfont icon-iconfonticonfontweibo " href="#"></a>
+                </p>
+                <p class="go-register">
+                    <span>还没有账号？</span><a href="#">快速登录</a>
+                </p>
+            </form>
+        </div>
+        <!--注册框内容-->
+        <div class="register-content">
+            <form action="">
+                <div class="account"><input type="text" placeholder="账号" name=""> <span class="iconfont icon-people"></span></div>
+                <div class="password"><input type="password" placeholder="密码" name=""><span class="iconfont icon-unlock"></span></div>
+                <div class="password"><input type="password" placeholder="确认密码" name=""><span class="iconfont icon-unlock"></span></div>
+
+                <button type="submit">注册</button>
+                <p class="agree-mes">
+                    <input type="checkbox" name="">
+                    <span>我已阅读并同意</span><a href="#" id="protocol-link">《用户注册服务协议》</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    <div class="close-outBox iconfont icon-guanbi "></div>
+
+</div>
+{include file="public/protocol" /}
+<script>
+    $(function(){
+
+//        头部登录
+        $("#top_line_loginbtn").on("click",function(){
+            $(".out-box").addClass("active");
+        });
+        $("#top_line_regbtn").on("click",function(){
+            $(".out-box").addClass("active");
+            $(".out-box").find(".loginAndRegister>div").eq(1).addClass("active").siblings().removeClass("active");
+            $(".out-box").find(" .content>div").eq(1).addClass("active").siblings().removeClass("active");
+        });
+//        登录注册切换
+        $(".out-box .loginAndRegister>div").on("click",function(){
+            var acIndex=$(this).index();
+            $(this).addClass("active").siblings().removeClass("active");
+            $(".out-box .content>div").eq(acIndex).addClass("active").siblings().removeClass("active")
+        });
+//        登陆底部按钮到注册
+        $(".out-box .content .login-content .go-register a").on("click",function(){
+            $(this).closest(".out-box").find(".loginAndRegister .login").removeClass("active");
+            $(this).closest(".out-box").find(".loginAndRegister .register").addClass("active");
+            $(this).closest(".content").find(".login-content").removeClass("active");
+            $(this).closest(".content").find(".register-content").addClass("active");
+            $("body").delegate(".protocol","onclick" ,function(event){
+                event.preventDefault();
+                $('.protocol').addClass('is-visible');
+                //$(".dialog-addquxiao").hide()
+            });
+        });
+//        关闭注册登录按钮
+        $(".out-box .close-outBox").on("click",function(){
+            $(this).closest(".out-box").removeClass("active");
+            $(this).closest(".out-box").find(".loginAndRegister>div").eq(0).addClass("active").siblings().removeClass("active");
+            $(this).closest(".out-box").find(" .content>div").eq(0).addClass("active").siblings().removeClass("active");
+        })
+
+    })
+</script>

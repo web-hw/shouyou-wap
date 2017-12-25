@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="__STATIC__/css/pc/header.css">
+<p id="space"></p>
+<div id="header5" class="header5">
+	<div class="header-nav clearfix">
+		<div class="nav-logo f-left">
+			<a class="logo-a" href="/"></a>
+		</div>
+		<div class="nav-list f-right">
+			<ul>
+				<li><a href="{:url('pc/index')}">平台首页</a></li>
+				<li><a href="{:url('pc/gcenter')}" >手游大厅</a></li>
+				<li><a href="{:url('pc/ucenter')}" >用户中心</a></li>
+				<li><a href="{:url('pc/cs_index')}">客服中心</a></li>
+				<li><a href="{:url('pc/newcenter')}" >新闻中心</a></li>
+				<li><a href="{:url('pc/gifts')}" >礼包中心</a></li>
+				<li><a href="{:url('pc/index')}" >页游平台</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!--<script src="static5/js/header-nav.js"></script>-->
+<script type="text/javascript">
+	/*
+		注：classList不兼容IE浏览器 6.7.8
+	*/
+	var
+		new_scroll_position = 0,
+		last_scroll_position,
+		header = document.getElementById('header5'),
+		space = document.getElementById('space');
+	window.addEventListener('scroll',function (e) {
+		last_scroll_position = window.scrollY;
+		// removeClass 'fixed'
+		if(last_scroll_position < 200){
+			header.classList.remove('fixed');
+			space.style.display = 'none';
+		}
+		// addClass 'fixed'
+		if(last_scroll_position > 200){
+			header.classList.add('fixed');
+			space.style.display = 'block';//用一个空白p标签占位,以免header为fixed的时候,屏幕闪动
+		}
+		// Scrolling down
+		if (new_scroll_position < last_scroll_position && last_scroll_position > 200) {
+			header.classList.remove("slideDown");
+			header.classList.add("slideUp");
+			
+			// Scrolling up
+		} else if (new_scroll_position > last_scroll_position) {
+			header.classList.remove("slideUp");
+			header.classList.add("slideDown");
+		}
+		new_scroll_position = last_scroll_position;
+	})
+</script>

@@ -1,0 +1,166 @@
+<link rel="stylesheet" href="__STATIC__/css/pc/ac_userinform.css">
+
+<link href="__STATIC__/css/pc/bootstrap.min.css" rel="stylesheet">
+<link href="__STATIC__/css/pc/cropper.min.css" rel="stylesheet">
+<link href="__STATIC__/css/pc/sitelogo.css" rel="stylesheet">
+<link  href="__STATIC__/css/pc/ucenter.css" rel="stylesheet">
+<script src="__STATIC__/js/pc/cropper.min.js"></script>
+<script src="__STATIC__/js/pc/sitelogo.js"></script>
+<script src="__STATIC__/js/pc/bootstrap.min.js"></script>
+
+<div class="ac-userinform">
+    <div class="ac-usertopbox">
+        <div class="personal-pro">
+            <p class="name-box">
+                <span class="name" id="pet_name">暂无昵称</span>
+                <input type="text" name="pet_name" maxlength="8" value="" onblur="pet_name(this.value)" placeholder="暂无昵称">
+                <span class="edit"></span>
+            </p>
+            <p class="Account-box">
+                <span class="Account-nub">账号：<i>4551</i></span>
+                <span class="loading-time">登录时间：<i>2017-12-14 17:50:65</i></span>
+            </p>
+        </div>
+        <script>
+            function pet_name(val) {
+                if($.trim(val) == ''){
+                    alert('昵称不能为空！');
+                    return false;
+                }
+                $.post('/?ct=account&ac=petNameAjax', {
+                    pet_name: val
+                },function (data) {
+                   (data.success == 200) ? ($('#pet_name').html(data.type),$('input[name="pet_name"]').val(data.type)) : "暂无昵称";
+                },'json');
+            }
+        </script>
+
+        <div class="ibox-content">
+            <div class="row">
+                <div class="ac-userimagebox " id="crop-avatar" >
+                    <div class="ac-imgbox avatar-view"  id="feedback" title="点击修改头像">
+                        <img src="" alt="">
+                    </div>
+                    <p class="avatar-view2 avatar-view">
+                        <span class="edit-image">修改头像</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--<div class="ac-userimagebox">-->
+            <!--<div class="ac-imgbox">-->
+                <!--<{if !empty($tx.portrait)}>-->
+                <!--<img src="<{$tx.portrait}>" alt="">-->
+                <!--<{else}>-->
+                <!--<img src="static5/images/myimage.jpg" alt="">-->
+                <!--<{/if}>-->
+            <!--</div>-->
+            <!--<div class="edit-imagebox">-->
+                <!--<span class="edit-image">修改头像-->
+                      <!--<input type="file"  name="fileField" value="laalal">-->
+                <!--</span>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+
+
+    <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form class="avatar-form" action="/?ct=account&ac=edits" enctype="multipart/form-data" method="post">
+                    <input type="hidden" name="do" value="1">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal" type="button">&times;</button>
+                        <h4 class="modal-title" id="avatar-modal-label">更改头像</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="avatar-body">
+                            <div class="avatar-upload">
+                                <input class="avatar-src" name="avatar_src" type="hidden">
+                                <input class="avatar-data" name="avatar_data" type="hidden">
+                                <label for="avatarInput">图片上传</label>
+                                <input class="avatar-input" id="avatarInput" name="portrait" type="file"></div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="avatar-wrapper"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="avatar-preview preview-lg"></div>
+                                    <div class="avatar-preview preview-md"></div>
+                                    <div class="avatar-preview preview-sm"></div>
+                                </div>
+                            </div>
+                            <div class="row avatar-btns">
+                                <div class="col-md-9">
+                                    <div class="btn-group">
+                                        <button class="btn" data-method="rotate" data-option="-90" type="button" title="Rotate -90 degrees"><i class="fa fa-undo"></i> 向左旋转</button>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button class="btn" data-method="rotate" data-option="90" type="button" title="Rotate 90 degrees"><i class="fa fa-repeat"></i> 向右旋转</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <button class="btn btn-success btn-block avatar-save" type="submit"><i class="fa fa-save"></i> 保存修改</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
+
+
+    <div class="ac-userbottombox">
+        <div class="left">
+            <p class="p1">信息完整度：<i>15%</i></p>
+            <p class="p2">
+                <a href="/?ct=account&ac=protect">去填写</a>
+            </p>
+        </div>
+        <!--游戏广告位  读3款推荐游戏-->
+        <div class="right-ad">
+            <ul class="game-ad">
+                <li class="gifts-list">
+                    <div class="img-box"><img src="__STATIC__/images/pc/index/game-giftimg.jpg" alt=""></div>
+                    <div class="words-box">
+                        <div class="top">
+                            <div class="normal active">
+                                <p class="gift-name">长生诀</p>
+                                <p class="game-name">角色扮演</p>
+                            </div>
+                        </div>
+                        <a class="git-btn" href="#">立刻下载</a>
+                    </div>
+                </li>
+                <li class="gifts-list">
+                    <div class="img-box"><img src="__STATIC__/images/pc/index/game-giftimg.jpg" alt=""></div>
+                    <div class="words-box">
+                        <div class="top">
+                            <div class="normal active">
+                                <p class="gift-name">长生诀</p>
+                                <p class="game-name">角色扮演</p>
+                            </div>
+                        </div>
+                        <a class="git-btn" href="#">立刻下载</a>
+                    </div>
+                </li>
+                <li class="gifts-list">
+                    <div class="img-box"><img src="__STATIC__/images/pc/index/game-giftimg.jpg" alt=""></div>
+                    <div class="words-box">
+                        <div class="top">
+                            <div class="normal active">
+                                <p class="gift-name">长生诀</p>
+                                <p class="game-name">角色扮演</p>
+                            </div>
+                        </div>
+                        <a class="git-btn" href="#">立刻下载</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+</div>

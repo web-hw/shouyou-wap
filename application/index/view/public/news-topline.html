@@ -1,0 +1,20 @@
+
+<!--新闻中心头部-->
+<div class="news-topBox">
+    <div class="news-tit">
+        <div class="tit-nav float-l">新闻中心</div>
+        <div class="tit-nav float-l " ><a class="active" href="#">全部</a></div>
+        <div class="tit-nav float-l" ><a href="#">公告</a></div>
+        <div class="tit-nav float-l" ><a href="#">攻略</a></div>
+        <div class="tit-nav float-l" ><a href="#">新闻</a></div>
+        <div class="tit-nav float-l" ><a href="#">活动</a></div>
+    </div>
+</div>
+<script>
+    $(function(){
+        $(".news-topBox .news-tit .tit-nav a").on("click",function(){
+            $(this).addClass("active");
+            $(this).closest(".tit-nav").siblings().find("a").removeClass("active");
+        })
+    })
+</script>
